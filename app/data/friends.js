@@ -1,0 +1,70 @@
+var friendsArray = [
+    {
+    "name":"Dave",
+    "photo":"https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/bb/0e/28/bb0e28d8-1729-cf50-7a99-10346a054b55/AppIcon-0-1x_U007emarketing-0-0-GLES2_U002c0-512MB-sRGB-0-0-0-85-220-0-0-0-7.png/246x0w.jpg",
+    "scores":[
+        2,
+        1,
+        3,
+        5,
+        5,
+        1,
+        2,
+        5,
+        4,
+        1
+      ]
+  },
+    {
+    "name":"John",
+    "photo":"https://i.guim.co.uk/img/media/f3d15848d117af87849c66e34764c41150ceb2b3/74_0_3984_2392/master/3984.jpg?width=300&quality=85&auto=format&fit=max&s=8b80afa3818a8ba3527b5ec274630901",
+    "scores":[
+        1,
+        1,
+        2,
+        3,
+        4,
+        2,
+        2,
+        3,
+        4,
+        1
+      ]
+  },
+    {
+    "name":"Mary",
+    "photo":"http://199.85.71.20/wp-content/uploads/2017/07/mary-berg.jpg",
+    "scores":[
+        3,
+        3,
+        4,
+        4,
+        4,
+        2,
+        2,
+        3,
+        4,
+        5
+      ]
+  },
+    {
+    "name":"Margo",
+    "photo":"https://www.mills.edu/faculty/images/margo_okazawa-rey_faculty_190x285_mills.jpg",
+    "scores":[
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        5
+      ]
+  },
+  
+];
+
+// 
+  module.exports = friendsArray;
