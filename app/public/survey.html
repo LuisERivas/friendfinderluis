@@ -211,3 +211,75 @@
 </html>
 
 
+<!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
+<script type="text/javascript">
+    // posts our content
+    document.querySelector("#submitBtn").addEventListener("click", function (event) {
+        event.preventDefault();
+        //array
+        const scores = [];
+    
+        function validateForm() {
+            var isFormValid = true;
+            if (!document.querySelector("#name").value || !document.querySelector("#photo").value) {
+                isFormValid = false;
+            };
+            const answers = document.querySelectorAll(".chosen-select");
+            answers.forEach(answer => {
+    //checking to see if inputed stuff is good            
+                if (!answer.value) {
+                    isFormValid = false
+                } else {
+                    // answer values are pushed to scores
+                    scores.push(parseInt(answer.value));
+                }
+            });
+            // console.log(scores);
+            if (!isFormValid) {
+                alert("Please check all values.");
+            }
+            // Will return if true or false, important line of code.
+            return isFormValid;
+        }
+
+        // if validateForm function = true, run code below
+        if (validateForm()) {
+            // Here we grab the form answers
+            var surveyData =
+            {
+                name: document.querySelector("#name").value.trim(),
+                photo: document.querySelector("#photo").value.trim(),
+            scores
+            };
+            console.log(surveyData);
+          
+
+            // Send the POST request.
+            // fetch sends to backend
+            fetch("/api/testfriends", {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(surveyData)
+            })
+                
+                .then(res => res.json())
+                
+                .then(
+                    function (anything) {
+                        console.log(anything)
+                        // modal should display
+                        $("#matchName").text(anything.name);
+                        $("#matchImg").attr("src", anything.photo);
+                        $("#resultsModal").modal("toggle");
+                        // alert("The survey was successfully submitted!")
+
+                        // This clears page by setting id and class values to empty strings.
+                        document.querySelector("#name").value = "";
+                        document.querySelector("#photo").value = "";
+                        document.querySelectorAll(".chosen-select").forEach(dropdown => dropdown.value = "");
+                    }
+                );
+        };
+    });
+
+</script>
